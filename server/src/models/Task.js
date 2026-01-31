@@ -22,17 +22,12 @@ const taskSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    progress: {
-      type: Number,
-      default: 0,
-      min: 0,
-      max: 100,
-    },
     status: {
       type: String,
-      enum: ["pending", "in-progress", "completed"],
+      enum: ["pending", "completed"],
       default: "pending",
     },
+
     categoryId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Category",

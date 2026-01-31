@@ -1,24 +1,16 @@
-const mongoose = require("mongoose");
+exports.createCategory = async (req, res) => {
+  try {
+    const { name, color } = req.body;
 
-const categorySchema = new mongoose.Schema(
-  {
-    name: {
-      type: String,
-      required: true,
-      trim: true,
-    },
-    color: {
-      type: String,
-      required: true,
-      match: /^#([0-9A-F]{3}){1,2}$/i,
-    },
-    userId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "User",
-      required: true,
-    },
-  },
-  { timestamps: true }
-);
+    const category = await Category.create({
+      name,
+      color,
+      userId: req.user.id, // 🔥 REQUIRED FIX
+    });
 
-module.exports = mongoose.model("Category", categorySchema);
+    res.status(201).json(category);
+  } catch (error) {
+    console.error("CREATE CATEGORY ERROR:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+};

@@ -1,16 +1,24 @@
-const router = require("express").Router();
-const protect = require("../middleware/authMiddleware");
+const express = require("express");
+const router = express.Router();
+
 const {
-  createTask,
   getTasks,
+  createTask,
   updateTask,
   deleteTask,
 } = require("../controllers/taskController");
 
+const protect = require("../middleware/authMiddleware");
+
+// 🔥 APPLY PROTECT TO ALL TASK ROUTES
 router.use(protect);
-router.post("/", createTask);
-router.get("/", getTasks);
-router.put("/:id", updateTask);
-router.delete("/:id", deleteTask);
+
+router.route("/")
+  .get(getTasks)
+  .post(createTask);
+
+router.route("/:id")
+  .put(updateTask)
+  .delete(deleteTask);
 
 module.exports = router;

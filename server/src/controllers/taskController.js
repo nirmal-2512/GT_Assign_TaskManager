@@ -24,19 +24,31 @@ exports.getTasks = async (req, res) => {
 };
 
 exports.updateTask = async (req, res) => {
-  const updates = {
-    ...req.body,
-    status: getStatus(req.body.progress),
-  };
+  try {
+    const task = await Task.findById(req.params.id);
 
-  const task = await Task.findOneAndUpdate(
-    { _id: req.params.id, userId: req.userId },
-    updates,
-    { new: true }
-  );
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
+    }
 
-  res.json(task);
+    // 🔥 SAFE CHECK
+    if (!req.user || task.userId.toString() !== req.user.id) {
+      return res.status(401).json({ message: "Not authorized" });
+    }
+
+    task.status = req.body.status ?? task.status;
+
+    const updatedTask = await task.save();
+
+    res.json(updatedTask);
+  } catch (error) {
+    console.error("UPDATE TASK ERROR:", error);
+    res.status(500).json({ message: "Server error" });
+  }
 };
+
+
+
 
 exports.deleteTask = async (req, res) => {
   await Task.findOneAndDelete({

@@ -2,10 +2,11 @@ import { useState } from "react";
 import api from "../services/api";
 
 export default function TaskForm({ onSuccess, categories }) {
+  const today = new Date().toISOString().split("T")[0];
   const [form, setForm] = useState({
     title: "",
     description: "",
-    date: "",
+    date: today,
     startTime: "",
     endTime: "",
     progress: 0,

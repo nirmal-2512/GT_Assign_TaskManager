@@ -1,12 +1,17 @@
-const router = require("express").Router();
+const express = require("express");
+const router = express.Router();
+
 const protect = require("../middleware/authMiddleware");
 const {
-  createCategory,
   getCategories,
+  createCategory,
 } = require("../controllers/categoryController");
 
+// 🔥 APPLY PROTECT FIRST
 router.use(protect);
-router.post("/", createCategory);
-router.get("/", getCategories);
+
+router.route("/")
+  .get(getCategories)
+  .post(createCategory);
 
 module.exports = router;

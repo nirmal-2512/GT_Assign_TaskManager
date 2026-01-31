@@ -37,7 +37,7 @@ export default function CategoryModal({ onAdd }) {
           value={color}
           onChange={(e) => setColor(e.target.value)}
         />
-        <span className="text-sm">{color}</span>
+        <span className="text-black text-sm">{color}</span>
       </div>
 
       <button className="w-full bg-indigo-600 text-white p-2 rounded">
