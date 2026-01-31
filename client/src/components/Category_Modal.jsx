@@ -34,7 +34,7 @@ export default function CategoryModal({ onChange }) {
   // };
 
   return (
-    <div className="bg-white rounded-2xl border shadow-sm p-4 space-y-4">
+    <div className="bg-[#d3ab9e] rounded-2xl border shadow-sm p-4 space-y-4">
       <h3 className="font-semibold text-purple-700 text-lg">Categories</h3>
 
       {/* Category List */}

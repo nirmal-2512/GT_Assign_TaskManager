@@ -48,15 +48,15 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="flex min-h-screen bg-gray-300 w-1/1 flex-col w-screen">
+    <div className="flex min-h-screen text-white w-1/1 flex-col w-screen">
       {/* Header */}
-      <div className="bg-purple-300 border-b">
+      <div className="bg-purple-500 border-b">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-semibold text-purple-900">
+            <h1 className="text-4xl font-semibold text-blue-900">
               Task Manager
             </h1>
-            <p className="text-xl font-serif text-gray-600">
+            <p className="text-xl font-serif text-gray-900">
               Plan, track and finish your tasks
             </p>
           </div>
@@ -66,7 +66,7 @@ export default function Dashboard() {
               localStorage.removeItem("token");
               window.location.href = "/login";
             }}
-            className="text-sm px-4 py-2 rounded-lg border hover:bg-gray-100"
+            className="text-sm px-4 text-white py-2 rounded-lg bg-purple-950 hover:bg-purple-800"
           >
             Logout
           </button>
@@ -90,13 +90,13 @@ export default function Dashboard() {
 
         {/* Right */}
         <div className="xl:col-span-3">
-          <h2 className="text-xl font-semibold mb-3 text-black p-4">
+          <h2 className="text-xl font-semibold mb-3 text-white p-4">
             Tasks on {selectedDate.toDateString()}
           </h2>
 
           <div className="space-y-4 w-full">
             {tasks.length === 0 ? (
-              <p className="text-gray-500">No tasks for this date</p>
+              <p className="text-white">No tasks for this date</p>
             ) : (
               tasks.map((task) => (
                 <TaskCard

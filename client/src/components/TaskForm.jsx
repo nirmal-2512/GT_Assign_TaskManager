@@ -39,11 +39,9 @@ export default function TaskForm({ onSuccess, categories }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full px-3 py-2 rounded-lg border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      className="w-full px-3 py-2 rounded-lg border bg-[#a8dadc] border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
     >
-      <h2 className="text-lg font-semibold text-purple-700 font-serif">
-        Add Task
-      </h2>
+      <h2 className="text-lg font-semibold text-purple-700">Add Task</h2>
 
       <input
         name="title"

@@ -38,8 +38,8 @@ export default function TaskCard({ task, onUpdate }) {
     >
       {/* Top Row */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-        <h3 className="text-lg font-semibold text-gray-800">{task.title}</h3>
-        <p className="text-gray-600 mt-2 text-sm">{task.description}</p>
+        <h3 className="text-lg font-semibold text-white">{task.title}</h3>
+        <p className="text-white mt-2 text-sm">{task.description}</p>
 
         <span
           className={`text-xs px-3 py-1 rounded-full w-fit ${
