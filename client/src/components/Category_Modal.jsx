@@ -21,7 +21,7 @@ export default function CategoryModal({ onAdd }) {
       onSubmit={handleSubmit}
       className="bg-white p-4 rounded-xl shadow space-y-3"
     >
-      <h3 className="font-semibold">Add Category</h3>
+      <h3 className="font-serif font-semibold text-purple-700">Add Category</h3>
 
       <input
         placeholder="Category name"

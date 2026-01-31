@@ -33,26 +33,34 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="flex min-h-screen bg-gray-300 w-1/1 flex-col w-screen">
       {/* Header */}
-      <div className="bg-white shadow p-4">
-        <div className="max-w-5xl mx-auto flex justify-between items-center">
-          <h1 className="text-2xl font-bold">Task Manager</h1>
+      <div className="bg-purple-300 border-b">
+        <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+          <div>
+            <h1 className="text-4xl font-semibold text-purple-900">
+              Task Manager
+            </h1>
+            <p className="text-xl font-serif text-gray-600">
+              Plan, track and finish your tasks
+            </p>
+          </div>
+
           <button
             onClick={() => {
               localStorage.removeItem("token");
               window.location.href = "/login";
             }}
-            className="text-sm text-red-500"
+            className="text-sm px-4 py-2 rounded-lg border hover:bg-gray-100"
           >
             Logout
           </button>
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className="max-w-6xl mx-auto px-4 py-6">
         {/* Left */}
-        <div className="space-y-4 md:col-span-1">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
           <CalendarView
             selectedDate={selectedDate}
             onChange={handleDateChange}
@@ -65,16 +73,22 @@ export default function Dashboard() {
         </div>
 
         {/* Right */}
-        <div className="md:col-span-2">
-          <h2 className="text-xl font-semibold mb-3">
+        <div className="xl:col-span-3">
+          <h2 className="text-xl font-semibold mb-3 text-black p-4">
             Tasks on {selectedDate.toDateString()}
           </h2>
 
-          <div className="space-y-3">
+          <div className="space-y-4 w-full">
             {tasks.length === 0 ? (
               <p className="text-gray-500">No tasks for this date</p>
             ) : (
-              tasks.map((task) => <TaskCard key={task._id} task={task} />)
+              tasks.map((task) => (
+                <TaskCard
+                  key={task._id}
+                  task={task}
+                  onUpdate={() => fetchTasks(selectedDate)}
+                />
+              ))
             )}
           </div>
         </div>

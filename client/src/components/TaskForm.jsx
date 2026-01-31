@@ -38,9 +38,11 @@ export default function TaskForm({ onSuccess, categories }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="bg-white p-5 rounded-xl shadow space-y-3"
+      className="w-full px-3 py-2 rounded-lg border bg-white border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
     >
-      <h2 className="text-lg font-semibold">Add Task</h2>
+      <h2 className="text-lg font-semibold text-purple-700 font-serif">
+        Add Task
+      </h2>
 
       <input
         name="title"
@@ -54,16 +56,16 @@ export default function TaskForm({ onSuccess, categories }) {
       <textarea
         name="description"
         placeholder="Description"
-        className="border p-2 rounded"
+        className="border p-2 rounded w-full"
         onChange={handleChange}
         value={form.description}
       />
 
-      <div className="flex gap-2">
+      <div className="flex gap-2 flex-row">
         <input
           type="date"
           name="date"
-          className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-1/3 border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           onChange={handleChange}
           value={form.date}
           required
@@ -71,7 +73,7 @@ export default function TaskForm({ onSuccess, categories }) {
         <input
           type="time"
           name="startTime"
-          className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-1/3 border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           onChange={handleChange}
           value={form.startTime}
           required
@@ -79,7 +81,7 @@ export default function TaskForm({ onSuccess, categories }) {
         <input
           type="time"
           name="endTime"
-          className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-1/3 border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
           onChange={handleChange}
           value={form.endTime}
           required
@@ -88,7 +90,7 @@ export default function TaskForm({ onSuccess, categories }) {
 
       <select
         name="categoryId"
-        className="border p-2 rounded"
+        className="w-full border mt-2 mb-2 p-2 rounded"
         onChange={handleChange}
         value={form.categoryId}
         required
@@ -101,17 +103,7 @@ export default function TaskForm({ onSuccess, categories }) {
         ))}
       </select>
 
-      <input
-        type="number"
-        name="progress"
-        min="0"
-        max="100"
-        className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
-        onChange={handleChange}
-        value={form.progress}
-      />
-
-      <button className="bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">
+      <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium">
         Save Task
       </button>
     </form>
