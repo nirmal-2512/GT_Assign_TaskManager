@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://gtassigntaskmanager1.vercel.app/api",
+  baseURL: "https://taskmangerformgt.vercel.app/api",
 });
 
 api.interceptors.request.use((req) => {
