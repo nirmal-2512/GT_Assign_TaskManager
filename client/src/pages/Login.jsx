@@ -20,18 +20,55 @@ export default function Login() {
   };
 
   return (
-    <div className="login-page">
-      <form className="login-card">
-        <h2 className="login-title">Welcome Back</h2>
-        <p className="login-subtitle">Login to manage your tasks</p>
+    <div className="login-wrapper">
+      <form onSubmit={handleSubmit}>
+        <div className="login-container">
+          <div className="login-left">
+            <h1>Hello! </h1>
+            <p>
+              Welcome to Task Manager: a simple and effective solution for
+              disciplined task scheduling.
+            </p>
 
-        <input className="login-input" type="email" placeholder="Email" />
-        <input className="login-input" type="password" placeholder="Password" />
+            <input
+              type="email"
+              placeholder="Email"
+              className="login-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
 
-        <button className="login-button">Login</button>
+            <div className="password-row">
+              <input
+                type="password"
+                placeholder="Password"
+                className="login-input"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
 
-        <div className="login-footer">
-          Don’t have an account? <a href="/register">Register</a>
+            <button className="login-btn">Login In</button>
+
+            <div className="divider">Or continue with</div>
+            <p className="text-sm mt-3 text-center">
+              No account?{" "}
+              <Link to="/register" className="text-indigo-600">
+                Register
+              </Link>
+            </p>
+          </div>
+
+          <div
+            className="login-right"
+            style={{ backgroundImage: "url(../../src/css/image.png)" }}
+          >
+            <div className="overlay-text">
+              Finally, all your work in one place
+            </div>
+          </div>
         </div>
       </form>
     </div>

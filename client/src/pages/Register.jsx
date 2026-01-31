@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
+import "../css/login.css";
 
 export default function Register() {
   const [name, setName] = useState("");
@@ -24,49 +25,57 @@ export default function Register() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl shadow w-80 m-20"
-      >
-        <h2 className="text-2xl font-bold mb-4">Register</h2>
+    <div className="login-wrapper">
+      <form onSubmit={handleSubmit}>
+        <div className="login-container">
+          <div className="login-left">
+            <h1>Hello!</h1>
+            Welcome to Task Manager: a simple and effective solution for
+            disciplined task scheduling.
+            <input
+              placeholder="Name"
+              className="login-input"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              className="login-input"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <div className="password-row">
+              <input
+                type="password"
+                placeholder="Password"
+                className="login-input"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+              />
+            </div>
+            <button className="login-btn">Register</button>
+            <div className="divider">Or continue with</div>
+            <p className="text-sm mt-3 text-center">
+              No account?{" "}
+              <Link to="/login" className="text-indigo-600">
+                Sign In
+              </Link>
+            </p>
+          </div>
 
-        <input
-          placeholder="Name"
-          className="border p-2 rounded w-full mb-3"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-
-        <input
-          type="email"
-          placeholder="Email"
-          className="border p-2 rounded w-full mb-3"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-2 rounded w-full mb-3"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-
-        <button className="bg-indigo-600 text-white w-full p-2 rounded">
-          Register
-        </button>
-
-        <p className="text-sm mt-3 text-center">
-          Already have an account?{" "}
-          <Link to="/login" className="text-indigo-600">
-            Login
-          </Link>
-        </p>
+          <div
+            className="login-right"
+            style={{ backgroundImage: "url(../../src/css/image.png)" }}
+          >
+            <div className="overlay-text">
+              Finally, all your work in one place
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );
