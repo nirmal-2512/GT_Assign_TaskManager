@@ -10,10 +10,8 @@ export default function TaskCard({ task, onUpdate }) {
   const color = task.categoryId?.color || "#6366f1";
   const bgColor = hexToRgba(color);
   const markCompleted = async () => {
-    await api.put(`/tasks/${task._id}`, {
-      status: "completed",
-    });
-    onUpdate(); // 🔥 refresh tasks
+    await api.put(`/tasks/${task._id}`);
+    console.log("ID:", task._id);
   };
 
   const deleteTask = async () => {
@@ -52,8 +50,8 @@ export default function TaskCard({ task, onUpdate }) {
         >
           {task.status}
         </span>
-        {task.status !== "completed" && (
-          <div className="m-2">
+        <div className="m-2">
+          {task.status !== "completed" && (
             <button
               onClick={markCompleted}
               className="px-2 py-1 text-sm rounded-lg 
@@ -61,14 +59,14 @@ export default function TaskCard({ task, onUpdate }) {
             >
               Completed
             </button>
-          </div>
-        )}
-        <button
-          onClick={deleteTask}
-          className="px-4 py-1 mx-2 text-sm rounded-lg text-red-600 hover:bg-red-50 transition"
-        >
-          Delete
-        </button>
+          )}
+          <button
+            onClick={deleteTask}
+            className="px-4 py-1 mx-2 my-2 text-sm rounded-lg text-red-600 hover:bg-red-50 transition"
+          >
+            Delete
+          </button>
+        </div>
       </div>
     </div>
   );

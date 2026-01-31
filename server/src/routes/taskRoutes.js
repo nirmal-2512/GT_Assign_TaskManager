@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-
+const authMiddleware = require("../middleware/authMiddleware");
 const {
   getTasks,
   createTask,
@@ -20,5 +20,7 @@ router.route("/")
 router.route("/:id")
   .put(updateTask)
   .delete(deleteTask);
+
+
 
 module.exports = router;

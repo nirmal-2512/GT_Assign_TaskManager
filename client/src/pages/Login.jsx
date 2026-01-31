@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import api from "../services/api";
+import "../css/login.css";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -19,41 +20,19 @@ export default function Login() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <form
-        onSubmit={handleSubmit}
-        className="bg-white p-6 rounded-xl shadow w-80 m-20"
-      >
-        <h2 className="text-2xl font-bold mb-4">Login</h2>
+    <div className="login-page">
+      <form className="login-card">
+        <h2 className="login-title">Welcome Back</h2>
+        <p className="login-subtitle">Login to manage your tasks</p>
 
-        <input
-          type="email"
-          placeholder="Email"
-          className="border p-2 rounded w-full mb-3"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+        <input className="login-input" type="email" placeholder="Email" />
+        <input className="login-input" type="password" placeholder="Password" />
 
-        <input
-          type="password"
-          placeholder="Password"
-          className="border p-2 rounded w-full mb-3"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
+        <button className="login-button">Login</button>
 
-        <button className="bg-indigo-600 text-white w-full p-2 rounded">
-          Login
-        </button>
-
-        <p className="text-sm mt-3 text-center">
-          No account?{" "}
-          <Link to="/register" className="text-indigo-600">
-            Register
-          </Link>
-        </p>
+        <div className="login-footer">
+          Don’t have an account? <a href="/register">Register</a>
+        </div>
       </form>
     </div>
   );

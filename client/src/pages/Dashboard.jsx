@@ -8,13 +8,28 @@ import CalendarView from "../components/CalendarView";
 
 export default function Dashboard() {
   const [tasks, setTasks] = useState([]);
+
   const [categories, setCategories] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const [loading, setLoading] = useState(false);
 
-  const fetchTasks = async (date = selectedDate) => {
-    const formattedDate = date.toISOString().split("T")[0];
-    const res = await api.get(`/tasks?date=${formattedDate}`);
-    setTasks(res.data);
+  const fetchTasks = async (dateObj) => {
+    try {
+      const d = dateObj || selectedDate || new Date();
+
+      const formattedDate =
+        d instanceof Date ? d.toISOString().split("T")[0] : d;
+
+      console.log("Fetching date:", formattedDate);
+
+      const res = await api.get(`/tasks?date=${formattedDate}`);
+
+      console.log("Tasks:", res.data);
+
+      setTasks(res.data);
+    } catch (err) {
+      console.error("Fetch tasks error:", err.message);
+    }
   };
 
   const fetchCategories = async () => {
@@ -65,7 +80,8 @@ export default function Dashboard() {
             selectedDate={selectedDate}
             onChange={handleDateChange}
           />
-          <CategoryModal onAdd={fetchCategories} />
+          <CategoryModal onChange={fetchCategories} />
+
           <TaskForm
             categories={categories}
             onSuccess={() => fetchTasks(selectedDate)}
