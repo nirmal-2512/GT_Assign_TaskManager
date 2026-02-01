@@ -39,14 +39,38 @@ export default function TaskForm({ onSuccess, categories }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full px-3 py-2 rounded-lg border bg-[#a8dadc] border-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+      className="
+    w-full
+    max-w-md
+    mx-auto
+    p-5
+    rounded-2xl
+    bg-white/20
+    backdrop-blur-lg
+    border
+    border-white/30
+    shadow-xl
+    space-y-4
+  "
     >
-      <h2 className="text-lg font-semibold text-purple-700">Add Task</h2>
+      <h2 className="text-xl font-semibold text-purple-900 text-center">
+        Add Task
+      </h2>
 
       <input
         name="title"
         placeholder="Title"
-        className="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+        className="
+      w-full
+      px-4 py-2
+      rounded-lg
+      bg-white/80
+      text-gray-800
+      placeholder-gray-500
+      focus:outline-none
+      focus:ring-2
+      focus:ring-indigo-400
+    "
         onChange={handleChange}
         value={form.title}
         required
@@ -55,16 +79,36 @@ export default function TaskForm({ onSuccess, categories }) {
       <textarea
         name="description"
         placeholder="Description"
-        className="border p-2 rounded w-full"
+        className="
+      w-full
+      px-4 py-2
+      rounded-lg
+      bg-white/80
+      text-gray-800
+      placeholder-gray-500
+      focus:outline-none
+      focus:ring-2
+      focus:ring-indigo-400
+    "
+        rows={3}
         onChange={handleChange}
         value={form.description}
       />
 
-      <div className="flex gap-2 flex-row">
+      <div className="flex gap-1">
         <input
           type="date"
           name="date"
-          className="w-1/3 border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="
+        w-1/3
+        px-3 py-2
+        rounded-lg
+        bg-white/80
+        text-gray-800
+        focus:outline-none
+        focus:ring-2
+        focus:ring-indigo-400
+      "
           onChange={handleChange}
           value={form.date}
           required
@@ -72,7 +116,16 @@ export default function TaskForm({ onSuccess, categories }) {
         <input
           type="time"
           name="startTime"
-          className="w-1/3 border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="
+        w-1/3
+        px-3 py-2
+        rounded-lg
+        bg-white/80
+        text-gray-800
+        focus:outline-none
+        focus:ring-2
+        focus:ring-indigo-400
+      "
           onChange={handleChange}
           value={form.startTime}
           required
@@ -80,7 +133,16 @@ export default function TaskForm({ onSuccess, categories }) {
         <input
           type="time"
           name="endTime"
-          className="w-1/3 border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="
+        w-1/3
+        px-3 py-2
+        rounded-lg
+        bg-white/80
+        text-gray-800
+        focus:outline-none
+        focus:ring-2
+        focus:ring-indigo-400
+      "
           onChange={handleChange}
           value={form.endTime}
           required
@@ -89,7 +151,16 @@ export default function TaskForm({ onSuccess, categories }) {
 
       <select
         name="categoryId"
-        className="w-full border mt-2 mb-2 p-2 rounded"
+        className="
+      w-full
+      px-4 py-2
+      rounded-lg
+      bg-white/80
+      text-gray-800
+      focus:outline-none
+      focus:ring-2
+      focus:ring-indigo-400
+    "
         onChange={handleChange}
         value={form.categoryId}
         required
@@ -102,8 +173,19 @@ export default function TaskForm({ onSuccess, categories }) {
         ))}
       </select>
 
-      <button className="w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 rounded-lg font-medium">
-        Save Task
+      <button
+        className="
+      w-full
+      py-2.5
+      rounded-lg
+      bg-purple-600
+      hover:bg-purple-700
+      text-white
+      font-semibold
+      transition
+    "
+      >
+        Add Task
       </button>
     </form>
   );

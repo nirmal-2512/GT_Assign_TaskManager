@@ -107,34 +107,20 @@ cd client
 npm install
 npm run dev
 
-
-
-
 ---
 
-## WHAT YOU SHOULD DO NOW
+DEPLOYMENT → make it live (Render + Vercel)
 
-1️⃣ Save this as `README.md`
-2️⃣ Push it to GitHub
-3️⃣ Add 2–3 screenshots later (optional)
+How to locally run:
 
----
+- cd server
+- npm install
+- npm run dev
 
-## FINAL CHECKLIST (Before Submission)
+- cd ..
 
-✔ Backend working
-✔ Frontend working
-✔ Auth + CRUD done
-✔ Calendar + alert done
-✔ README done
-
----
-
-## LAST STEPS (Choose ONE)
-- `DEPLOYMENT` → make it live (Render + Vercel)
-- `UI_POLISH` → last visual tweaks
-- `CONFIRM_DONE` → final review checklist
-
-You’ve built a **legit full-stack project**
-Say the final step and we’ll close this perfectly.
+- cd client
+- npm install
+- Change the baseURL to the localhost run url
+- npm run dev
 ```

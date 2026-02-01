@@ -50,7 +50,7 @@ export default function Dashboard() {
   return (
     <div className="flex min-h-screen text-white w-1/1 flex-col w-screen">
       {/* Header */}
-      <div className="bg-purple-500 border-b">
+      <div className="bg-purple-500">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div>
             <h1 className="text-4xl font-semibold text-blue-900">
