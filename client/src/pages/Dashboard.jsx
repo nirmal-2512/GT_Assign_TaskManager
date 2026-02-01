@@ -13,6 +13,8 @@ export default function Dashboard() {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [loading, setLoading] = useState(false);
 
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
   const fetchTasks = async (dateObj) => {
     try {
       const d = dateObj || selectedDate || new Date();
@@ -46,6 +48,11 @@ export default function Dashboard() {
     fetchTasks();
     fetchCategories();
   }, []);
+
+  const filteredTasks =
+    selectedCategory === "all"
+      ? tasks
+      : tasks.filter((task) => task.categoryId?._id === selectedCategory);
 
   const totalTasks = tasks.length;
 
@@ -101,10 +108,34 @@ export default function Dashboard() {
         </div>
 
         {/* Right */}
-        <div className="xl:col-span-3 flex flex-col mt-6 text-center">
-          <h2 className="text-xl font-semibold mb-3 text-white p-4">
+        <div className="xl:col-span-3 flex flex-col mt-2 text-center">
+          <h2 className="text-xl font-semibold mb-1 text-white p-1">
             Tasks on {selectedDate.toDateString()}
           </h2>
+
+          {/* Category Filter */}
+          <div className="flex justify-center mb-1">
+            <select
+              value={selectedCategory}
+              onChange={(e) => setSelectedCategory(e.target.value)}
+              className="
+      px-4 py-2
+      rounded-lg
+      bg-white/80
+      text-gray-800
+      focus:outline-none
+      focus:ring-2
+      focus:ring-indigo-500
+    "
+            >
+              <option value="all">All Categories</option>
+              {categories.map((cat) => (
+                <option key={cat._id} value={cat._id}>
+                  {cat.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
           {/* Progress Bar */}
           <div className="w-full border-2 rounded-2xl shadow-sm px-6 space-y-4 py-2 mx-auto mb-2">
@@ -132,10 +163,10 @@ export default function Dashboard() {
           </div>
 
           <div className="space-y-4 w-full">
-            {tasks.length === 0 ? (
-              <p className="text-white">No tasks for this date</p>
+            {filteredTasks.length === 0 ? (
+              <p className="text-white">No tasks for this filter</p>
             ) : (
-              tasks.map((task) => (
+              filteredTasks.map((task) => (
                 <TaskCard
                   key={task._id}
                   task={task}
