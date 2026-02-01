@@ -100,7 +100,7 @@ export default function TaskForm({ onSuccess, categories }) {
           type="date"
           name="date"
           className="
-        w-1/3
+        w-2/5
         px-3 py-2
         rounded-lg
         bg-white/80
@@ -117,11 +117,11 @@ export default function TaskForm({ onSuccess, categories }) {
           type="time"
           name="startTime"
           className="
-        w-1/3
+        w-1/4
         px-3 py-2
         rounded-lg
         bg-white/80
-        text-gray-800
+        text-black
         focus:outline-none
         focus:ring-2
         focus:ring-indigo-400
@@ -134,7 +134,7 @@ export default function TaskForm({ onSuccess, categories }) {
           type="time"
           name="endTime"
           className="
-        w-1/3
+        w-3/10
         px-3 py-2
         rounded-lg
         bg-white/80

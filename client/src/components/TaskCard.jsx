@@ -42,7 +42,7 @@ export default function TaskCard({ task, onUpdate }) {
         <p className="text-white mt-2 text-sm">{task.description}</p>
 
         <span
-          className={`text-xs px-3 py-1 rounded-full w-fit ${
+          className={`text-xs px-3 py-1 flex rounded-full ${
             task.status === "completed"
               ? "bg-green-100 text-green-700"
               : "bg-yellow-100 text-yellow-700"
