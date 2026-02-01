@@ -30,7 +30,7 @@ export default function TaskCard({ task, onUpdate }) {
 
   return (
     <div
-      className="w-full bg-red-200 rounded-2xl border shadow-sm px-10 space-y-4"
+      className="w-full bg-white rounded-2xl border shadow-sm px-10 space-y-4"
       style={{
         backgroundColor: bgColor,
         borderColor: color,

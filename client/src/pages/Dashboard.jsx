@@ -47,14 +47,26 @@ export default function Dashboard() {
     fetchCategories();
   }, []);
 
+  const totalTasks = tasks.length;
+
+  const completedTasks = tasks.filter(
+    (task) => task.status === "completed",
+  ).length;
+
+  const progress =
+    totalTasks === 0 ? 0 : Math.round((completedTasks / totalTasks) * 100);
+
   return (
     <div className="flex min-h-screen text-white w-1/1 flex-col w-screen">
       {/* Header */}
-      <div className="bg-purple-500">
+      <div className="bg-purple-400">
         <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
           <div>
-            <h1 className="text-4xl font-semibold text-blue-900">
-              Task Manager
+            <h1 className="text-4xl font-semibold text-purple-900">
+              <span className="text-purple-900 font-serif">Task</span>
+              {/* <span className="text-red-800">/</span> */}
+              <span className="text-blue-800 font-bold">Manager</span>
+              {/* Task Manager */}
             </h1>
             <p className="text-xl font-serif text-gray-900">
               Plan, track and finish your tasks
@@ -75,7 +87,7 @@ export default function Dashboard() {
 
       <div className="max-w-6xl mx-auto px-4 py-6">
         {/* Left */}
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-2">
           <CalendarView
             selectedDate={selectedDate}
             onChange={handleDateChange}
@@ -89,10 +101,35 @@ export default function Dashboard() {
         </div>
 
         {/* Right */}
-        <div className="xl:col-span-3">
+        <div className="xl:col-span-3 flex flex-col mt-6 text-center">
           <h2 className="text-xl font-semibold mb-3 text-white p-4">
             Tasks on {selectedDate.toDateString()}
           </h2>
+
+          {/* Progress Bar */}
+          <div className="w-full border-2 rounded-2xl shadow-sm px-6 space-y-4 py-2 mx-auto mb-2">
+            <div className="flex justify-between text-sm text-white">
+              <span className="font-bold text-sm text-white">
+                Progress ({completedTasks}/{totalTasks})
+              </span>
+              <span className="font-bold text-sm text-white">{progress}%</span>
+            </div>
+
+            <div className="w-full h-3 rounded-full bg-white/30 overflow-hidden">
+              <div
+                className="
+          h-full
+          rounded-full
+          bg-gradient-to-r
+          from-indigo-500
+          to-purple-600
+          transition-all
+          duration-300
+        "
+                style={{ width: `${progress}%` }}
+              />
+            </div>
+          </div>
 
           <div className="space-y-4 w-full">
             {tasks.length === 0 ? (

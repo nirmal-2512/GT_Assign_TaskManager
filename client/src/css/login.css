@@ -25,7 +25,7 @@ body::before {
 .login-wrapper {
   min-height: 100vh;
   width: 50vw;
-  background: #682488d0;
+  /* background: #902ebdd0; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -33,14 +33,15 @@ body::before {
 
 /* ===== MAIN CARD ===== */
 .login-container {
+  border: 2px solid #530055;
   margin: auto;
   width: 80%;
-  height: 620px;
-  background: #ffffff;
+  height: 500px;
+  background: #8347bf60;
   border-radius: 28px;
   display: flex;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(246, 246, 246, 0.15);
 }
 
 /* ===== LEFT SIDE (FORM) ===== */
@@ -50,7 +51,7 @@ body::before {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background: #f9fafb;
+  /* background: #f9fafb; */
 }
 
 .login-left h1 {

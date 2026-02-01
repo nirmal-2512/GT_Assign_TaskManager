@@ -29,12 +29,17 @@ export default function Register() {
       <form onSubmit={handleSubmit}>
         <div className="login-container">
           <div className="login-left">
-            <h1>Hello!</h1>
+            <h1 className="text-4xl font-semibold text-purple-900">
+              <span className="text-purple-900 font-serif">Task</span>
+              {/* <span className="text-red-800">/</span> */}
+              <span className="text-blue-800 font-bold">Manager</span>
+              {/* Task Manager */}
+            </h1>
             Welcome to Task Manager: a simple and effective solution for
             disciplined task scheduling.
             <input
               placeholder="Name"
-              className="login-input"
+              className="login-input mt-2"
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -58,10 +63,9 @@ export default function Register() {
               />
             </div>
             <button className="login-btn">Register</button>
-            <div className="divider">Or continue with</div>
-            <p className="text-sm mt-3 text-center">
-              No account?{" "}
-              <Link to="/login" className="text-indigo-600">
+            <p className="text-sm mt-3 text-center text-white">
+              <span className="text-white"> Already a member? </span>{" "}
+              <Link to="/login" className="text-indigo-300">
                 Sign In
               </Link>
             </p>

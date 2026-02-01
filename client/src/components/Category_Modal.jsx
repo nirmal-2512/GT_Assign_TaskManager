@@ -98,7 +98,7 @@ export default function CategoryModal({ onChange }) {
         onSubmit={addCategory}
         className="space-y-3 pt-3 border-t border-white/30"
       >
-        <p className="text-sm font-medium text-white">Add Category</p>
+        <p className="text-sm font-medium text-black">Add Category</p>
 
         <input
           placeholder="Category name"
@@ -125,7 +125,7 @@ export default function CategoryModal({ onChange }) {
             onChange={(e) => setColor(e.target.value)}
             className="w-10 h-10 rounded cursor-pointer"
           />
-          <span className="text-xs text-white/80">{color}</span>
+          <span className="text-xs text-black/80">{color}</span>
         </div>
 
         <button

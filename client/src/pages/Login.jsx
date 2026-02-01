@@ -24,21 +24,22 @@ export default function Login() {
       <form onSubmit={handleSubmit}>
         <div className="login-container">
           <div className="login-left">
-            <h1>Hello! </h1>
-            <p>
-              Welcome to Task Manager: a simple and effective solution for
-              disciplined task scheduling.
-            </p>
-
+            <h1 className="text-4xl font-semibold text-purple-900">
+              <span className="text-purple-900 font-serif">Task</span>
+              {/* <span className="text-red-800">/</span> */}
+              <span className="text-blue-800 font-bold">Manager</span>
+              {/* Task Manager */}
+            </h1>
+            Welcome to Task Manager: a simple and effective solution for
+            disciplined task scheduling.
             <input
               type="email"
               placeholder="Email"
-              className="login-input"
+              className="login-input mt-2"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-
             <div className="password-row">
               <input
                 type="password"
@@ -49,13 +50,10 @@ export default function Login() {
                 required
               />
             </div>
-
             <button className="login-btn">Login In</button>
-
-            <div className="divider">Or continue with</div>
-            <p className="text-sm mt-3 text-center">
-              No account?{" "}
-              <Link to="/register" className="text-indigo-600">
+            <p className="text-xl mt-3 text-center text-white">
+              <span className="text-white"> No account? </span>
+              <Link to="/register" className="text-indigo-300">
                 Register
               </Link>
             </p>
